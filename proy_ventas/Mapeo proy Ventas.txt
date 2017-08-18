@@ -1,0 +1,37 @@
+tablas:
+
+-Producto
+-Usuario
+-Cliente
+-Vendedor
+-PedidoCabecera
+-PedidoDetalle
+
+
+****************************************
+*************SISTEMA VENTAS*************
+****************************************
+
+MENU:
+1=> MANTENIMIENTO
+2=> VENTAS
+3=> REPORTES
+****************************************
+**************MANTENIMIENTO*************
+A=> Cliente
+B=> Producto
+C=> Usuario
+D=> Vendedor
+*****************************************
+*************MANT. CLIENTE***************
+1=> Registrar 
+2=> Actualizar
+3=> Eliminar
+4=> Listar
+*****************************************
+**************REG. CLIENTE***************
+
+
+
+
+
