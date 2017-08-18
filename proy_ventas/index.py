@@ -1,68 +1,71 @@
 import mantenimiento.productos
 def Load():
-	OpcionesSistemas();
-	opcion=input("Ingrese una opción:");
-	print("\n");
+	MenuPrincipal()
 	
-	#MANTENIMIENTO
-	if(opcion=="1"):
+	
+def MenuPrincipal():
+	print("****************************************")
+	print("*************SISTEMA VENTAS*************")
+	print("****************************************")
+	print("MENU")
+	print("A=> MANTENIMIENTO")
+	print("B=> VENTAS")
+	print("C=> REPORTES")
+	print("****************************************")
+	
+	opcion=input("Ingrese una opción:")
+
+	if(opcion=="A"):
 		OpcionesMantenimiento()
-		subopcion=input("Ingrese la subopcion: ")
-		
-		OpcionesOperaciones(subopcion)
-		accion=input("Ingrese la operación: ")
-
-		MantenimientoProducto(accion)
-		#mantenimiento.productos.insertarDatos()
+	elif(opcion=="B"):
+		print("Ventas")
+	elif(opcion=="C"):
+		print("Reportes")
 	else:
-		print("hola")
-
-def MantenimientoProducto(accion):
-	if(accion=="1"):
-		mantenimiento.productos.insertarDatos()
-	elif(accion=="2"):
-		print("actualiza")
-	elif(accion=="3"):
-		print("elimina")
-	elif(accion=="4"):
-		print("lista")
-
-	
-def OpcionesSistemas():
-	print("****************************************");
-	print("*************SISTEMA VENTAS*************");
-	print("****************************************");
-	print("MENU");
-	print("1=> MANTENIMIENTO");
-	print("2=> VENTAS");
-	print("3=> REPORTES");
-	print("****************************************");
+		print("La opción: "+opcion+" ingresada no existe")
 
 def OpcionesMantenimiento():
-	print("*************MANTENIMIENTO*************");
-	print("A=> Productos");
-	print("B=> Usuario");
-	print("C=> Cliente");
-	print("D=> Vendedor");
-	print("****************************************");
+	print("*************MANTENIMIENTO*************")
+	print("A=> Productos")
+	print("B=> Usuario")
+	print("C=> Cliente")
+	print("D=> Vendedor")
+	print("****************************************")
+	opcion=input("Ingrese una opción:")
 
-def OpcionesOperaciones(subopcion):
+	if(opcion=="A"):
+		OpcionesProductos()
+	elif(opcion=="B"):
+		print("usuarios")
+	elif(opcion=="C"):
+		print("cliente")
+	elif(opcion=="D"):
+		print("vendedor")
+	else:
+		print("La opción: "+opcion+" ingresada no existe")
 
-	if(subopcion=="A"):
-		nombre="PRODUCTOS"
-	elif(subopcion=="B"):
-		nombre="USUARIO"
-	elif(subopcion=="C"):
-		nombre="CLIENTE"
-	elif(subopcion=="D"):
-		nombre="VENDEDOR"
+def OpcionesProductos():
+	print("*************MANT.PRODUCTOS************")
+	print("A=> Registra")
+	print("B=> Actualiza")
+	print("C=> Elimina")
+	print("D=> lista")
+	print("****************************************")
 
-	print("*************MANT."+nombre+"************");
-	print("1=> Registra");
-	print("2=> Actualiza");
-	print("3=> Elimina");
-	print("4=> lista");
-	print("****************************************");
+	opcion=input("Ingrese una opción:")
 
+	if(opcion=="A"):
+		RegistarProducto()
+	elif(opcion=="B"):
+		print("usuarios")
+	elif(opcion=="C"):
+		print("cliente")
+	elif(opcion=="D"):
+		print("vendedor")
+	else:
+		print("La opción: "+opcion+" ingresada no existe")
 
+def RegistarProducto():
+	mantenimiento.productos.insertarDatos()
+	
 Load()

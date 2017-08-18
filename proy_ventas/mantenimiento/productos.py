@@ -19,4 +19,4 @@ def insertarDatos():
 		print("Eror, no se han insertado los valores correctamente")
 	finally:
 		con.close()
-		print("Se cerró la conexión")
+		
