@@ -1,6 +1,7 @@
 import mantenimiento.productos
 import mantenimiento.usuario
 import mantenimiento.cliente
+import mantenimiento.vendedor
 
 def load():
     menuPrincipal()
@@ -45,7 +46,7 @@ def opcionesMantenimiento():
     elif opcion == "C":
         opcionesClientes()
     elif opcion == "D":
-        print("vendedor")
+        opcionesVendedores()
     else:
         print("La opción: " + opcion + " ingresada no existe")
 
@@ -139,7 +140,7 @@ def listarUsuario():
     mantenimiento.usuario.leerDatos()
 # FIN-REGIÓN MANTENIMIENTO DE PRODUCTOS
 
-#INICIO-REGIÓN CLIENTES
+#INICIO-REGIÓN VENDEDORES
 
 def opcionesClientes():
     print("*************MANT.CLIENTES************")
@@ -185,4 +186,45 @@ def listarCliente():
 
 #FIN-REGIÓN CLIENTES
 
+#INICIO-REGIÓN VENDEDORES
+def opcionesVendedores():
+    print("*************MANT.VENDEDORES************")
+    print("A=> Registra")
+    print("B=> Actualiza")
+    print("C=> Elimina")
+    print("D=> lista")
+    print("****************************************")
+
+    opcion = input("Ingrese una opción:")
+
+    if opcion == "A":
+        registarVendedor()
+    elif opcion == "B":
+        actualizarVendedor()
+    elif opcion == "C":
+        eliminarVendedor()
+    elif opcion == "D":
+        listarVendedor()
+    else:
+        print("La opción: " + opcion + " ingresada no existe")
+
+def registarVendedor():
+    nombre_vendedor = input("Ingrese el nombre del vendedor: ")
+
+    mantenimiento.vendedor.insertarDatos(nombre_vendedor)
+
+def actualizarVendedor():
+    id_vendedor=input("Ingrese el id del vendedor: ")
+
+    mantenimiento.vendedor.actualizarDatos(id_vendedor)
+
+def eliminarVendedor():
+    id_vendedor=input("Ingrese el id del vendedor: ")
+
+    mantenimiento.vendedor.eliminarDatos(id_vendedor)
+
+def listarVendedor():
+    mantenimiento.vendedor.leerDatos()
+
+#FIN-REGIÓN VENDEDORES
 load()
