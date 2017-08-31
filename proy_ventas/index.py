@@ -2,6 +2,9 @@ import mantenimiento.productos
 import mantenimiento.usuario
 import mantenimiento.cliente
 import mantenimiento.vendedor
+import ventas.pedido_cabecera
+import datetime
+import time
 
 def load():
     menuPrincipal()
@@ -21,7 +24,7 @@ def menuPrincipal():
     if opcion == "A":
         opcionesMantenimiento()
     elif opcion == "B":
-        print("Ventas")
+        opcionesVenta()
     elif opcion == "C":
         print("Reportes")
     else:
@@ -227,4 +230,33 @@ def listarVendedor():
     mantenimiento.vendedor.leerDatos()
 
 #FIN-REGIÓN VENDEDORES
+
+def opcionesVenta():
+    print("*************VENTA*************")
+    print("A=>REGISTRAR")
+    print("B=>LISTAR")
+    print("****************************************")
+    opcion = input("Ingrese opcion:")
+
+    if opcion == "A":
+        registraPedido()
+    elif opcion == "B":
+        listaPedido()
+    else:
+        print("La opción: " + opcion + " ingresada no existe")
+
+def registraPedido():
+    
+    id_cliente= input("Ingrese el id cliente: ")
+    id_usuario = input("Ingrese el id usuario: ")
+    id_vendedor=input("Ingrese el id vendedor: ")
+    fecha = datetime.datetime.now()
+
+    id_producto=input("Ingrese el id producto: ")
+    cantidad=input("Ingrese el cantidad: ")
+    precio_unitario=input("Ingrese el precio: ")
+   
+    ventas.pedido_cabecera.insertarDatos(id_cliente,id_usuario,id_vendedor,"%s/%s/%s" % (fecha.year,fecha.month, fecha.day),id_producto,cantidad,precio_unitario)
+
+
 load()

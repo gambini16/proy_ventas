@@ -58,7 +58,9 @@ def leerDatos():
 	rows = cursor.fetchall()
 
 	for row in rows:
-		print(row)
+		id =row
 
 	cursor.close()
 	con.close()
+
+	return id
